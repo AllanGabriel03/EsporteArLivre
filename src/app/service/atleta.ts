@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Pessoa } from '../models/pessoa/pessoa-module';
 
 
 @Injectable({

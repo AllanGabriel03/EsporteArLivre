@@ -1,0 +1,26 @@
+<div id="div-form">
+    <form id="form-corrida">
+        <label for="descricao">Descrição da Corrida</label>
+        <textarea
+           id="descricao"
+           name="descricao"
+           rows="5"
+           cols="50"
+           placeholder="Ex: 5° Maratona Noturna da Cidade">
+        </textarea>
+
+        <label for="dataDaCorrida"> Data da Corrida </label>
+        <input type="date" name="dataDaCorrida" [(ngModel)] = "dataDaCorrida" class="input">
+        
+        <label for="distancia">Distâncias Disponíveis</label>
+        <input type="radio" name="distancia" [(ngModel)] = "distancia" id="5km" class="btnSelecao" value="5km">5km
+        <input type="radio" name="distancia" [(ngModel)] = "distancia" id="10km" class="btnSelecao" value="5km">10km
+        <input type="radio" name="distancia" [(ngModel)] = "distancia" id="25km" class="btnSelecao" value="25km">25km 
+
+        <div id="div-btns">
+            <button type="submit" id="btnAdd" (click)="exibeDados()"> Cadastrar Corrida </button>
+        </div>
+    </form>
+       
+
+</div>
