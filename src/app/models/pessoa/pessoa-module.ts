@@ -16,7 +16,7 @@ export class Pessoa{
   cpf: number = 0
   sexo: string = ''
   cep : number = 0
-  ruaLogradoro: string = ''
+  ruaLogradouro: string = ''
   bairro: string =''
   cidade: string = ''
   uf: string = ''

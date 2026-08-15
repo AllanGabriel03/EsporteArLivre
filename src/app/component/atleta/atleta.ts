@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AtletaService } from '../../service/atleta-service';
+import { Pessoa } from '../../models/pessoa/pessoa-module';
 
 @Component({
   selector: 'app-atleta',
@@ -7,21 +9,50 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './atleta.html',
   styleUrl: './atleta.css',
 })
+
 export class Atleta {
   
   nome = ''
-  cpf = ''
+  cpf = 0
   sexo = ''
-  cep = ''
+  cep = 0
   ruaLogradouro = ''
   bairro = ''
   cidade = ''
   uf = ''
   
-
+  constructor(private atletaService: AtletaService){}
 
   exibeDados(){
-    console.log(this.nome, this.cpf, this.sexo, this.ruaLogradouro, this.bairro, this.cidade)
+    console.log(this.nome, this.cpf, this.sexo, this.ruaLogradouro, this.bairro, this.cidade, this.uf)
   }
 
+  salvarAtleta(){
+    const pessoaAtleta = new Pessoa()
+    pessoaAtleta.nome = this.nome
+    pessoaAtleta.cpf = this.cpf
+    pessoaAtleta.sexo = this.sexo
+    pessoaAtleta.cep = this.cep
+    pessoaAtleta.ruaLogradouro = this.ruaLogradouro
+    pessoaAtleta.bairro = this.bairro
+    pessoaAtleta.cidade = this.cidade
+    pessoaAtleta.uf = this.uf
+
+    this.atletaService.adicionar(pessoaAtleta)
+
+    this.atletaService.listar()
+
+    this.limparAtributos()
+  }
+
+  limparAtributos(){
+    this.nome = ''
+    this.cpf = 0
+    this.sexo = ''
+    this.cep = 0
+    this.ruaLogradouro = ''
+    this.bairro = ''
+    this.cidade = ''
+    this.uf = ''
+  }
 }

@@ -5,7 +5,7 @@ import { Pessoa } from '../models/pessoa/pessoa-module';
 @Injectable({
   providedIn: 'root',
 })
-export class Atleta {
+export class AtletaService {
   private atletas : Pessoa[] = []
 
   adicionar(pessoa: Pessoa){

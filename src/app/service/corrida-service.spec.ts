@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Atleta } from './atleta';
+import { CorridaService } from './corrida-service';
 
-describe('Atleta', () => {
-  let service: Atleta;
+describe('CorridaService', () => {
+  let service: CorridaService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Atleta);
+    service = TestBed.inject(CorridaService);
   });
 
   it('should be created', () => {

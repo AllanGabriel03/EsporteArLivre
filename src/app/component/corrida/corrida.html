@@ -1,5 +1,7 @@
 <div id="div-form">
-    <form id="form-corrida">
+    <h2>Cadastro de Corrida</h2>
+
+    <form id="form-corrida" (submit)="salvarCorrida()">
         <label for="descricao">Descrição da Corrida</label>
         <textarea
            id="descricao"
@@ -18,7 +20,7 @@
         <input type="radio" name="distancia" [(ngModel)] = "distancia" id="25km" class="btnSelecao" value="25km">25km 
 
         <div id="div-btns">
-            <button type="submit" id="btnAdd" (click)="exibeDados()"> Cadastrar Corrida </button>
+            <button type="submit" id="btnAdd"> Cadastrar Corrida </button>
         </div>
     </form>
        
