@@ -6,10 +6,8 @@
         <textarea
            id="descricao"
            name="descricao"
-           rows="5"
-           cols="50"
-           placeholder="Ex: 5° Maratona Noturna da Cidade">
-        </textarea>
+           [(ngModel)] = "descricao"
+           placeholder="Ex: 5° Maratona Noturna da Cidade"></textarea>
 
         <label for="dataDaCorrida"> Data da Corrida </label>
         <input type="date" name="dataDaCorrida" [(ngModel)] = "dataDaCorrida" class="input">

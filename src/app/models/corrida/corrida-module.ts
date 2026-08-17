@@ -4,3 +4,4 @@ export class CorridaModule {
   dataDaCorrida: number = 0
   distancia: number = 0
 }
+                                                                      

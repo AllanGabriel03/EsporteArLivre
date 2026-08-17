@@ -31,12 +31,12 @@ export class Corrida {
 
     this.corridaService.listar()
 
-    this.limparAtributos()
+    
   }
 
-  limparAtributos(){
+  /*limparAtributos(){
     this.descricao = ''
     this.dataDaCorrida = 0
     this.distancia = 0
-  }
+  }*/
 }
