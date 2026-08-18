@@ -1,7 +1,7 @@
 <div id="div-form">
     <h2>Cadastro Atleta</h2>
 
-    <form id="form-atleta" (submit)="salvarAtleta()">
+    <form id="form-atleta" (submit)="enviaDadosAtleta()">
         <label for="nome">Nome</label>
         <input type="text" name="nome" [(ngModel)] = "nome" class="input01" required maxlength="80" placeholder="Informe seu nome">
 
@@ -17,7 +17,7 @@
         <input type="text" name="cep" [(ngModel)] = "cep" id="cep" class="input02" required maxlength="9" placeholder="Informe seu cep">
 
         <label for="rua-logradouro">Rua/Logradouro</label>
-        <input type="text" name="rua-logradouro" [(ngModel)] = "ruaLogradouro" id="rua-logradouro" class="input01" required maxlength="9"
+        <input type="text" name="rua-logradouro" [(ngModel)] = "ruaLogradouro" id="rua-logradouro" class="input01" required 
             placeholder="Informe sua rua/logradouro">
 
         <label for="bairro">Bairro</label>
