@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CorridaService } from '../../service/corrida-service';
 import { CorridaModule } from '../../models/corrida/corrida-module';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-corrida',
@@ -9,8 +10,9 @@ import { CorridaModule } from '../../models/corrida/corrida-module';
   templateUrl: './corrida.html',
   styleUrl: './corrida.css',
 })
-export class Corrida {
 
+export class Corrida {
+  id = 0
   descricao = ''
   dataDaCorrida = 0
   distancia = 0
@@ -34,7 +36,7 @@ export class Corrida {
   }
 
   carregaCampo(idCorrida: number){
-    this.corridaService.listarCorridas(idCorrida)
+    this.corridaService.localizarCorrida(idCorrida)
     .subscribe({
       next:(objCorrida) => {
         this.id = objCorrida.id
@@ -48,13 +50,13 @@ export class Corrida {
     })
   }
 
-  enviaDadosAtleta(){
+  enviaDadosCorrida(){
     const corrida = new CorridaModule()
     corrida.descricao = this.descricao
     corrida.distancia = this.distancia
 
     if(!this.editar) {
-      this.corridaService.adicionar(CorridaModule)
+      this.corridaService.adicionar(corrida)
       .subscribe({
         next: (resposta) => {
           console.log(resposta)
@@ -66,10 +68,10 @@ export class Corrida {
     }else {
       corrida.id = this.idCorrida
 
-      this.corridaService.alterar(CorridaModule)
+      this.corridaService.alterar(corrida)
       .subscribe({
         next: (resposta) => {
-          console.log(CorridaModule)
+          console.log(corrida)
 
           console.log(resposta)
         },
@@ -83,7 +85,7 @@ export class Corrida {
   }
   
   listaCorrida(idCorrida: number){
-    this.corridaService.listarCorridas(idCorrida)
+    this.corridaService.localizarCorrida(idCorrida)
     .subscribe({
       next: (dados) => {
         console.table(dados)

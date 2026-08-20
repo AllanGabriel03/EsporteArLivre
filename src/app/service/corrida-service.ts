@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CorridaModule } from '../models/corrida/corrida-module';
-import { Observable } from '../../../node_modules/rxjs/dist/types/index';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -24,7 +24,7 @@ export class CorridaService {
     return this.http.get<CorridaModule[]>(urlApi)
   }
 
-  private localizarCorrida(idCorrida: number):Observable<CorridaModule>{
+  localizarCorrida(idCorrida: number):Observable<CorridaModule>{
     const urlApi =`https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/${idCorrida}`
   
     return this.http.get<CorridaModule>(urlApi)
