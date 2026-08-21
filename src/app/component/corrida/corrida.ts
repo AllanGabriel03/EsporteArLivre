@@ -14,16 +14,22 @@ import { ActivatedRoute } from '@angular/router';
 export class Corrida {
   id = 0
   descricao = ''
-  dataDaCorrida = 0
-  distancia = 0
+  dataDaCorrida = ''
+  distancia5km = false
+  distancia10km = false
+  distancia25km = false
 
   editar = false
   idCorrida = 0
 
-  constructor(private corridaService: CorridaService, private route: ActivatedRoute, private cdr: ChangeDetectorRef){}
+  constructor(
+    private corridaService: CorridaService, 
+    private route: ActivatedRoute, 
+    private cdr: ChangeDetectorRef
+  ){}
 
   exibeDados(){
-    console.log(this.descricao, this.dataDaCorrida, this.distancia)
+    console.log(this.descricao, this.dataDaCorrida, this.distancia5km, this.distancia10km, this.distancia25km)
   }
 
   ngOnInit(){
@@ -41,11 +47,13 @@ export class Corrida {
       next:(objCorrida) => {
         this.id = objCorrida.id
         this.descricao = objCorrida.descricao
-        this.distancia = objCorrida.distancia
+        this.distancia5km = objCorrida.distancia5km
+        this.distancia10km = objCorrida.distancia10km
+        this.distancia25km = objCorrida.distancia25km
 
         this.cdr.detectChanges()
       }, error: (msgErro) => {
-        console.log("Erro ao listar a corrida ", msgErro)
+        return msgErro
       }
     })
   }
@@ -53,30 +61,30 @@ export class Corrida {
   enviaDadosCorrida(){
     const corrida = new CorridaModule()
     corrida.descricao = this.descricao
-    corrida.distancia = this.distancia
+    corrida.distancia5km = this.distancia5km
+    corrida.distancia10km = this.distancia10km
+    corrida.distancia25km = this.distancia25km
 
-    if(!this.editar) {
-      this.corridaService.adicionar(corrida)
-      .subscribe({
-        next: (resposta) => {
-          console.log(resposta)
-        },
-        error: (msgErro) => {
-          console.log("Erro ao cadastrar a corrida ", msgErro)
-        }
-      })
-    }else {
+    if(this.editar) {
       corrida.id = this.idCorrida
 
       this.corridaService.alterar(corrida)
       .subscribe({
         next: (resposta) => {
-          console.log(corrida)
-
-          console.log(resposta)
+          return resposta
         },
         error: (msgErro) => {
-          console.log("Erro ao alerar a corrida", msgErro)
+          return msgErro
+        }
+      })
+    }else {
+      this.corridaService.adicionar(corrida)
+      .subscribe({
+        next: (resposta) => {
+          return resposta
+        },
+        error: (msgErro) => {
+          return msgErro
         }
       })
     }
@@ -84,22 +92,14 @@ export class Corrida {
     this.limparAtributos()
   }
   
-  listaCorrida(idCorrida: number){
-    this.corridaService.localizarCorrida(idCorrida)
-    .subscribe({
-      next: (dados) => {
-        console.table(dados)
-      },
-      error: (msgErro) => {
-        console.log("Erro ao listar corrdas ", msgErro)
-      }
-    })
-  }
+  
 
   limparAtributos(){
     this.descricao = ''
-    this.dataDaCorrida = 0
-    this.distancia = 0
+    this.dataDaCorrida = ''
+    this.distancia5km = false
+    this.distancia10km = false
+    this.distancia25km = false
   }
 
 

@@ -10,13 +10,14 @@
            placeholder="Ex: 5° Maratona Noturna da Cidade"></textarea>
 
         <label for="dataDaCorrida"> Data da Corrida </label>
-        <input type="date" name="dataDaCorrida" [(ngModel)] = "dataDaCorrida" class="input">
+        <input type="date" name="dataDaCorrida" [(ngModel)] = "dataDaCorrida" class="input" required>
         
         <label for="distancia">Distâncias Disponíveis</label>
-        <input type="radio" name="distancia" [(ngModel)] = "distancia" id="5km" class="btnSelecao" value="5km">5km
-        <input type="radio" name="distancia" [(ngModel)] = "distancia" id="10km" class="btnSelecao" value="10km">10km
-        <input type="radio" name="distancia" [(ngModel)] = "distancia" id="25km" class="btnSelecao" value="25km">25km 
-
+        <div id="div-checkbox">
+           <input type="checkbox" name="distancia5km" [(ngModel)] = "distancia5km" id="distancia5km" class="btnSelecao" value="5km">5km
+           <input type="checkbox" name="distancia10km" [(ngModel)] = "distancia10km" id="distancia10km" class="btnSelecao" value="10km">10km
+           <input type="checkbox" name="distancia25km" [(ngModel)] = "distancia25km" id="distancia25km" class="btnSelecao" value="25km">25km 
+        </div> 
         <div id="div-btns">
             <button type="submit" id="btnAdd"> Cadastrar Corrida </button>
         </div>

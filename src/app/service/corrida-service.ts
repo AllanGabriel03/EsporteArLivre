@@ -30,8 +30,8 @@ export class CorridaService {
     return this.http.get<CorridaModule>(urlApi)
   }
 
-  remover(corrida: CorridaModule): Observable<CorridaModule>{
-    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/${corrida.id}`
+  remover(idCorrida: number){
+    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/${idCorrida}`
 
     return this.http.delete<CorridaModule>(urlApi)
   }

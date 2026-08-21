@@ -1,7 +1,9 @@
 export class CorridaModule {
   id: number = 0
   descricao: string = ''
-  dataDaCorrida: number = 0
-  distancia: number = 0
+  dataDaCorrida: string = ''
+  distancia5km: boolean = false
+  distancia10km: boolean = false
+  distancia25km: boolean = false
 }
                                                                        
