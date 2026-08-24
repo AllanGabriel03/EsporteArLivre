@@ -55,6 +55,6 @@ export class CorridaLista {
   
 
   carregaCampo(objCorrida: CorridaModule){
-    this.router.navigate(["/alteracorrida", objCorrida.id])
+    this.router.navigate(["/alteraCorrida", objCorrida.id])
   }
 }

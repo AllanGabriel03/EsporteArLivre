@@ -25,6 +25,10 @@ export const routes: Routes = [
         component:Corrida,
     },
     {
+        path:"alteraCorrida/:id",
+        component:Corrida,
+    },
+    {
         path:"atletasLista",
         component:AtletaListaComponent,
 

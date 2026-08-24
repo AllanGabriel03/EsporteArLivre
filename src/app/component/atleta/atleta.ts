@@ -73,6 +73,7 @@ export class Atleta {
   //DELCARAÇÃO DOS ATRIBUTOS DO COMPONENTE
   id = 0
   nome = ''
+  dataNascimento = ''
   cpf = 0
   sexo = ''
   cep = 0
@@ -108,6 +109,7 @@ export class Atleta {
         next: (objAtleta) => {
           this.id = objAtleta.id
           this.nome = objAtleta.nome
+          this.dataNascimento = objAtleta.dataNascimento
           this.cpf = objAtleta.cpf
           this.sexo = objAtleta.sexo
           this.cep = objAtleta.cep
@@ -126,6 +128,7 @@ export class Atleta {
   enviaDadosAtleta() {
     const pessoaAtleta = new Pessoa()
     pessoaAtleta.nome = this.nome
+    pessoaAtleta.dataNascimento = this.dataNascimento
     pessoaAtleta.cpf = this.cpf
     pessoaAtleta.sexo = this.sexo
     pessoaAtleta.cep = this.cep

@@ -13,6 +13,7 @@ export class PessoaModule {
 export class Pessoa{
   id: number = 0
   nome: string = ''
+  dataNascimento: string = ''
   cpf: number = 0
   sexo: string = ''
   cep : number = 0

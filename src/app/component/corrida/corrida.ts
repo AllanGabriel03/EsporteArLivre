@@ -47,6 +47,7 @@ export class Corrida {
       next:(objCorrida) => {
         this.id = objCorrida.id
         this.descricao = objCorrida.descricao
+        this.dataDaCorrida = objCorrida.dataDaCorrida
         this.distancia5km = objCorrida.distancia5km
         this.distancia10km = objCorrida.distancia10km
         this.distancia25km = objCorrida.distancia25km
@@ -61,6 +62,7 @@ export class Corrida {
   enviaDadosCorrida(){
     const corrida = new CorridaModule()
     corrida.descricao = this.descricao
+    corrida.dataDaCorrida = this.dataDaCorrida
     corrida.distancia5km = this.distancia5km
     corrida.distancia10km = this.distancia10km
     corrida.distancia25km = this.distancia25km
