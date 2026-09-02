@@ -5,11 +5,17 @@
         <label for="nome">Nome</label>
         <input type="text" name="nome" [(ngModel)] = "nome" class="input01" required maxlength="80" placeholder="Informe seu nome">
 
-        <label for="dataNascimento">Data de Nascimento</label>
-        <input type="date" name="dataNascimento" [(ngModel)] = "dataNascimento" class="input" required>
+        <label for="data_nascimento">Data de Nascimento</label>
+        <input type="date" name="data_nascimento" [(ngModel)] = "data_nascimento" class="input" required>
 
         <label for="cpf">CPF</label>
         <input type="text" name="cpf" [(ngModel)] = "cpf" id="cpf" class="input02" required maxlength="14" placeholder="Informe seu cpf">
+
+        <label for="peso">Peso</label>
+        <input type="text" name="peso" [(ngModel)] = "peso" id="peso" class="input02" required maxlength="14" placeholder="Informe seu peso">
+
+        <label for="altura">Altura</label>
+        <input type="text" name="altura" [(ngModel)] = "altura" id="altura" class="input02" required maxlength="14" placeholder="Informe sua altura">
 
         <label for="sexo">Sexo</label>
         <input type="radio" name="sexo" [(ngModel)] = "sexo" id="sexoM" class="btnSelecao" value="M">Masculino
@@ -19,8 +25,8 @@
         <label for="cep">CEP</label>
         <input type="text" name="cep" [(ngModel)] = "cep" id="cep" class="input02" required maxlength="9" placeholder="Informe seu cep">
 
-        <label for="rua-logradouro">Rua/Logradouro</label>
-        <input type="text" name="rua-logradouro" [(ngModel)] = "ruaLogradouro" id="rua-logradouro" class="input01" required 
+        <label for="rua_logradouro">Rua/Logradouro</label>
+        <input type="text" name="rua_logradouro" [(ngModel)] = "rua_logradouro" id="rua_logradouro" class="input01" required 
             placeholder="Informe sua rua/logradouro">
 
         <label for="bairro">Bairro</label>
