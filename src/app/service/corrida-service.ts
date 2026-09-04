@@ -12,32 +12,32 @@ export class CorridaService {
   constructor(private http: HttpClient) { }
 
   adicionar(corrida: CorridaModule): Observable<CorridaModule>{
-    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida`
+    const urlApi = `http://127.0.0.1:8000/corrida/`
 
     return this.http.post<CorridaModule>(urlApi, corrida)
   }
 
   //listar corrida na api
   listarCorridas(): Observable<CorridaModule[]>{
-    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida`
+    const urlApi = `http://127.0.0.1:8000/corrida/`
 
     return this.http.get<CorridaModule[]>(urlApi)
   }
 
   localizarCorrida(idCorrida: number):Observable<CorridaModule>{
-    const urlApi =`https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/${idCorrida}`
+    const urlApi =`http://127.0.0.1:8000/corrida/${idCorrida}`
   
     return this.http.get<CorridaModule>(urlApi)
   }
 
   remover(idCorrida: number){
-    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/${idCorrida}`
+    const urlApi = `http://127.0.0.1:8000/corrida/${idCorrida}`
 
     return this.http.delete<CorridaModule>(urlApi)
   }
 
   alterar(corrida: CorridaModule):Observable<CorridaModule>{
-    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/${corrida.id}`
+    const urlApi = `http://127.0.0.1:8000/corrida/${corrida.idcorrida}`
 
     return this.http.put<CorridaModule>(urlApi, corrida)
   }

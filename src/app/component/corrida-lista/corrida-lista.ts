@@ -35,12 +35,12 @@ export class CorridaLista {
   }
 
   excluir(objCorrida: CorridaModule){
-    if(confirm(`Deseja excluir a corrida ${objCorrida.descricao}`)){
-      this.corridaService.remover(objCorrida.id)
+    if(confirm(`Deseja excluir a corrida ${objCorrida.descricao_corrida}`)){
+      this.corridaService.remover(objCorrida.idcorrida)
       .subscribe({
         next: (resposta) => {
           this.listaCorridas.update(elem =>
-            elem.filter(a => a.id !== objCorrida.id))
+            elem.filter(a => a.idcorrida !== objCorrida.idcorrida))
             console.log('Atleta excluído com sucesso ', resposta)
         },
         error: (msgErro) => {
@@ -55,6 +55,6 @@ export class CorridaLista {
   
 
   carregaCampo(objCorrida: CorridaModule){
-    this.router.navigate(["/alteraCorrida", objCorrida.id])
+    this.router.navigate(["/alteraCorrida", objCorrida.idcorrida])
   }
 }

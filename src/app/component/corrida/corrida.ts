@@ -12,12 +12,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class Corrida {
-  id = 0
-  descricao = ''
-  dataDaCorrida = ''
-  distancia5km = false
-  distancia10km = false
-  distancia25km = false
+  idcorrida = 0
+  descricao_corrida = ''
+  data_corrida = ''
+  distancia_5km = false
+  distancia_10km = false
+  distancia_25km = false
 
   editar = false
   idCorrida = 0
@@ -29,11 +29,11 @@ export class Corrida {
   ){}
 
   exibeDados(){
-    console.log(this.descricao, this.dataDaCorrida, this.distancia5km, this.distancia10km, this.distancia25km)
+    console.log(this.descricao_corrida, this.data_corrida, this.distancia_5km, this.distancia_10km, this.distancia_25km)
   }
 
   ngOnInit(){
-    this.idCorrida = Number(this.route.snapshot.paramMap.get('id'))
+    this.idCorrida = Number(this.route.snapshot.paramMap.get('idcorrida'))
 
     if (this.idCorrida > 0){
       this.editar = true
@@ -45,12 +45,12 @@ export class Corrida {
     this.corridaService.localizarCorrida(idCorrida)
     .subscribe({
       next:(objCorrida) => {
-        this.id = objCorrida.id
-        this.descricao = objCorrida.descricao
-        this.dataDaCorrida = objCorrida.dataDaCorrida
-        this.distancia5km = objCorrida.distancia5km
-        this.distancia10km = objCorrida.distancia10km
-        this.distancia25km = objCorrida.distancia25km
+        this.idcorrida = objCorrida.idcorrida
+        this.descricao_corrida = objCorrida.descricao_corrida
+        this.data_corrida = objCorrida.data_corrida
+        this.distancia_5km = objCorrida.distancia_5km
+        this.distancia_10km = objCorrida.distancia_10km
+        this.distancia_25km = objCorrida.distancia_25km
 
         this.cdr.detectChanges()
       }, error: (msgErro) => {
@@ -61,14 +61,14 @@ export class Corrida {
 
   enviaDadosCorrida(){
     const corrida = new CorridaModule()
-    corrida.descricao = this.descricao
-    corrida.dataDaCorrida = this.dataDaCorrida
-    corrida.distancia5km = this.distancia5km
-    corrida.distancia10km = this.distancia10km
-    corrida.distancia25km = this.distancia25km
+    corrida.descricao_corrida = this.descricao_corrida
+    corrida.data_corrida = this.data_corrida
+    corrida.distancia_5km = this.distancia_5km
+    corrida.distancia_10km = this.distancia_10km
+    corrida.distancia_25km = this.distancia_25km
 
     if(this.editar) {
-      corrida.id = this.idCorrida
+      corrida.idcorrida = this.idCorrida
 
       this.corridaService.alterar(corrida)
       .subscribe({
@@ -97,11 +97,11 @@ export class Corrida {
   
 
   limparAtributos(){
-    this.descricao = ''
-    this.dataDaCorrida = ''
-    this.distancia5km = false
-    this.distancia10km = false
-    this.distancia25km = false
+    this.descricao_corrida = ''
+    this.data_corrida = ''
+    this.distancia_5km = false
+    this.distancia_10km = false
+    this.distancia_25km = false
   }
 
 

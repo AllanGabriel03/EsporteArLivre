@@ -2,12 +2,12 @@
     <h2>Lista Corridas</h2>
 
     <div id="lista-corrida">
-        @for (elem of listaCorridas(); track elem.id){
+        @for (elem of listaCorridas(); track elem.idcorrida){
             <div class="item-corrida">
                 <span class="dados-corrida">
-                    {{elem.descricao}} - {{elem.dataDaCorrida}} - Distâncias: {{elem.distancia5km ? '5km':''}}
-                    {{elem.distancia10km ? '10km':''}}
-                    {{elem.distancia10km ? '25km':''}}
+                    {{elem.descricao_corrida}} - {{elem.data_corrida}} - Distâncias: {{elem.distancia_5km ? '5km':''}}
+                    {{elem.distancia_10km ? '10km':''}}
+                    {{elem.distancia_25km ? '25km':''}}
                 </span>
                 <span class="links-lista">
                     <a class="lnk-editar" (click)="carregaCampo(elem)"> Editar </a>

@@ -25,7 +25,7 @@ export const routes: Routes = [
         component:Corrida,
     },
     {
-        path:"alteraCorrida/:id",
+        path:"alteraCorrida/:idcorrida",
         component:Corrida,
     },
     {
